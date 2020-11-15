@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     is_valid = validate(inputName,inputPassword);
                     if (!is_valid){
 
-                        Toast.makeText(MainActivity.this, "Incorrect password!", LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Incorrect password!", LENGTH_SHORT).show(); //goren
                     }
                     else{
                         Toast.makeText(MainActivity.this, "Login successful!", LENGTH_SHORT).show();
