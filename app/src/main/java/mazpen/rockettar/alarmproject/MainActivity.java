@@ -9,10 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends AppCompatActivity {
-
+    Map<String, String> all_users_and_passwords = new HashMap<String, String>();
     private EditText etUsername;
     private EditText etPassword;
     private Button etLogin;
@@ -59,10 +62,19 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean validate(String name, String password)
     {
-        if(name.equals(Username) && password.equals(Password))
+        if (all_users_and_passwords.containsKey(name))
         {
-            return true;
+            String password_of_user = all_users_and_passwords.get(name);
+            if (password_of_user.equals(password))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        return false;
+        all_users_and_passwords.put(name, password);
+        return true;
     }
 }
